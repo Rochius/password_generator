@@ -1,5 +1,6 @@
 import random
 import os
+import msvcrt
 
 capital_letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','R','S','T','U','V','W','X','Y','Z']
 
@@ -7,6 +8,9 @@ numbers = [1,2,3,4,5,6,7,8,9,0]
 
 passwords_and_apps = {}
 
+def pause_system():
+    print("Press a key to continue...")
+    msvcrt.getch()
 
 def obligatory_characters():
     obl_chars = []
@@ -46,11 +50,25 @@ def menu():
         print(' 1) Generate Password\n 2) Show passwprds \n 0) Exit')
         op = input('Please, select an option (1, 2, 0): ')
         if op == '1':
-            pass
+            app_name = input('Please, indicate which app the password will be for:')
+            if app_name in passwords_and_apps:
+                generate_option = input(f'You already have a {app_name} password, Do you want to overwrite it? y/n')
+                if generate_option.lower() == 'y':
+                    generate_password(app_name)
+                    print('Password succefully added!!')
+                    pause_system()
+                elif generate_option.lower() != 'y' and generate_option.lower() != 'n':
+                    print('That is not an available option...')
+                    pause_system()
+            else:
+                generate_password(app_name)
+                print('Password succefully added!!')
+                pause_system()
         elif op == '2':
             pass
         elif op == '0':
-            pass
+            print('Thank you for use our system!!')
+            b = False
         else:
             print("That is not an available option, please try again")
         
