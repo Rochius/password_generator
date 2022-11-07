@@ -9,7 +9,7 @@ numbers = [1,2,3,4,5,6,7,8,9,0]
 passwords_and_apps = {}
 
 def pause_system():
-    print("Press a key to continue...")
+    print("\nPress a key to continue...")
     msvcrt.getch()
 
 def obligatory_characters():
@@ -93,5 +93,7 @@ def menu():
             print("That is not an available option, please try again")
             pause_system()
         
+
+
 
 menu()
