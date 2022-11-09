@@ -8,6 +8,20 @@ numbers = [1,2,3,4,5,6,7,8,9,0]
 
 passwords_and_apps = {}
 
+FILE_NAME = 'Passwords.txt'
+
+
+def change_to_string(passwords_data_structure):
+    passwords_in_string = ''
+    for key, value in passwords_data_structure.items():
+        passwords_in_string += f'K: ${key}, V: ${value}\n'
+    return passwords_in_string
+
+def store_passwords(passwords):
+    file = open(FILE_NAME, 'a')
+    file.write(change_to_string(passwords))
+    print('Succefully stored')
+
 
 def pause_system():
     print("\nPress a key to continue...")
@@ -93,3 +107,5 @@ def menu():
 
 
 menu()
+
+store_passwords(passwords_and_apps)
