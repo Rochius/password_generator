@@ -8,9 +8,11 @@ numbers = [1,2,3,4,5,6,7,8,9,0]
 
 passwords_and_apps = {}
 
+
 def pause_system():
     print("\nPress a key to continue...")
     msvcrt.getch()
+
 
 def obligatory_characters():
     obl_chars = []
@@ -42,12 +44,6 @@ def generate_password(key):
     print(f'\nYour {key} password is: {passwords_and_apps[key]}')
     print('Password succefully added!!')
 
-def is_empty(data_structure):
-    if data_structure:
-        return False
-    else:
-        return True
-
 def show_passwords():
     for key, value in passwords_and_apps.items():
         print(f'{key}: {value}')
@@ -78,12 +74,12 @@ def menu():
                 pause_system()
 
         elif op == '2':
-            if is_empty(passwords_and_apps):
-                print('You do not have any passwords...')
-                pause_system()
-            else:
+            if passwords_and_apps:
                 print('\nThis are your passwords:')
                 show_passwords()
+                pause_system()
+            else:
+                print('\nYou do not have any passwords...')
                 pause_system()
 
         elif op == '0':
