@@ -1,6 +1,8 @@
 import random
 import os
 import msvcrt
+#patron singleton para poder hacer la apertura de los archivos, con una sola instancia de la clase encargada de administrar los archivos
+#debo agregar una opción para elegir la aplicación de la que quiero ver la contraseña
 
 capital_letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','R','S','T','U','V','W','X','Y','Z']
 
